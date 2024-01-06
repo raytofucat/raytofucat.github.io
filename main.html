@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>		
+	<title>Pastry list</title>
+	<meta charset="utf-8">
+	<meta name="description" content="List of ordering patisserie">
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/handwriting');
+    </style>
+  <link href="https://fonts.cdnfonts.com/css/handwriting" rel="stylesheet">
+                
+
+</head>
+
+<style>
+    body {
+      background-image: url('image/background.png');
+    }
+</style>
+
+<body>
+  <script src="script.js"></script>
+
+    <h1>Pastry list</h1>
+
+    <div class="add">
+        <h2>✧ select people and add pastries ✧</h2>
+        <table>
+              <th>
+                <div>Add new person: <input class = "input" autocomplete="off" id="add-person" type="text" name="fname" placeholder=" Press Enter"></div>
+                <br></br>
+                <div class="block1" id = "button-field">
+                  <button class="btn" class="btn_person" id="Nancy" onclick="select_person('Nancy')">Nancy</button>
+                  <button class="btn" class="btn_person" id="Yan Xi" onclick="select_person('Yan Xi')">Yan Xi</button>
+                  <button class="btn" class="btn_person" id="Zhang Han" onclick="select_person('Zhang Han')">Zhang Han</button>
+                  <br></br>
+                  <button class="btn" class="btn_person" id="Gu Yu" onclick="select_person('Gu Yu')">Gu Yu</button>
+                  <button class="btn" class="btn_person" id="Chen Chen" onclick="select_person('Chen Chen')">Chen Chen</button>
+                  <button class="btn" class="btn_person" id="Li Ao" onclick="select_person('Li Ao')">Li Ao</button>
+                  <br></br>
+                  <button class="btn" class="btn_person" id="Chen Xi" onclick="select_person('Chen Xi')">Chen Xi</button>
+                  <button class="btn" class="btn_person" id="Han Jun" onclick="select_person('Han Jun')">Han Jun</button>
+                  <button class="btn" class="btn_person" id="Zhen Yan" onclick="select_person('Zhen Yan')">Zhen Yan</button>
+                  <br></br>
+                  <button class="btn" class="btn_person" id="Wang Zhi" onclick="select_person('Wang Zhi')">Wang Zhi</button>
+                  <button class="btn" class="btn_person" id="Wei Shan" onclick="select_person('Wei Shan')">Wei Shan</button>
+                  <button class="btn" class="btn_person" id="Yan Wen" onclick="select_person('Yan Wen')">Yan Wen</button>
+                  <br></br>
+                  <script>
+                    const textInput2 = document.getElementById('add-person');
+                    textInput2.addEventListener('keydown', (event) => {
+                      if (event.key === 'Enter') {
+                        console.log('Add person!');
+                        add_person("add-person");
+                      }
+                    });
+                  </script>
+                </div>
+              </th>
+              <th>
+                <div class="block1">
+                  <div class="autocomplete">
+                    Pastry name: <input class = "input" autocomplete="off" id="select-pastry" type="text" name="fname" placeholder=" Press Enter"><br>
+
+                  </div>
+                  <script>
+                      const textInput = document.getElementById('select-pastry');
+                      textInput.addEventListener('keydown', (event) => {
+                        if (event.key === 'Enter') {
+                          console.log('Pastry selected!');
+                          get_pastry();
+                        }
+                      });
+                    </script>
+                  <div id="add-right"><br></br>
+                  </div>
+                  <div id = "add-pastry-button">
+                    <br></br>
+                  </div>
+                  
+                </div>
+              </th>
+              <th>
+                <div class="block1">
+                    <p id = "name_person"></p>
+                    <div id="order-person"></div>
+                    <p id="confirm"></p>
+                      
+
+              </div>
+              </th>
+        </table>
+      </div>
+    <img class = "img" src="https://lh3.googleusercontent.com/pw/ABLVV86T0yXQdb4vOdeaT8SR9joRHBiipHbIuL0g1HBmCHB2aFHeUfG6HVt6ejdZ0i00ZfRDHFzLqqjVsFKRdo56nibbO-tknq64IHHiRPCv4w5YJVyEqg=w2400?source=screenshot.guru"> </img>
+    <br>
+      <div class="result">
+        <h2>✧ see order list ✧</h2>
+        <table>
+          <tr>
+            <th>
+              <div class="block2">
+                <span class="subtitle">List for the shop</span>
+
+                   
+                  <table id = "total-order">
+                    <tr>
+                      <th class = "table-col-large">Name</th>
+                      <th class = "table-col">Quantity</th>
+                      <th class = "table-col">Unit price</th>
+                    </tr>
+
+                  </table>
+                  <p id = "total-amount"></p>
+            </div>
+            </th>
+            <th>
+              <div class="block2">
+                <span class="subtitle">List per person</span>
+                    <table id = "separate-order">
+                      <tr>
+                        <th class = "table-col">Name</th>
+                        <th class = "table-col-large">Order</th>
+                        <th class = "table-col">To pay</th>
+                      </tr>
+                    </table>
+
+            </div>
+            </th>
+      </table>
+      </div>
+      <script>
+        autocomplete(document.getElementById("select-pastry"), pastries);
+      </script>
+      
+</body>
+</html>
